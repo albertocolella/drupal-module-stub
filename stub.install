@@ -1,0 +1,56 @@
+<?php
+/**
+ * @file
+ * stub.install file.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function stub_schema() {
+  $schema = array();
+
+  //$schema[] = array();
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function stub_install() {
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function stub_uninstall() {
+  // variable_del('some variable');
+}
+
+/**
+ * Implements hook_requirements().
+ */
+/*
+function stub_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+  switch($phase) {
+	case 'install':
+		// The module is being installed.
+	break;	
+	case 'update':
+		// The module is enabled and update.php is run.
+	break;	
+	case 'runtime':
+		$requirements['drupal'] = array(
+		  'title' => $t('Drupal'),
+		  'value' => VERSION,
+		  'severity' => REQUIREMENT_INFO
+		);
+	break;	
+  }
+  return $requirements;
+}
+*/

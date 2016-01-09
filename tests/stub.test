@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains tests for the Stub module.
+ */
+
+class StubModuleTestCase extends DrupalUnitTestCase {
+
+  /**
+   * Implements getInfo().
+   */
+  public static function getInfo() {
+    return array(
+      'name' => t('Stub example test'),
+      'description' => t('Unit test for Stub.'),
+      'group' => t('Stub'),
+    );
+  }
+
+  /**
+   * Implements setUp().
+   */
+  function setUp() {
+	parent::setUp('stub');
+  }
+
+  /**
+   * Test.
+   */
+  function testStubExample() {
+    $res = $this->drupalGet("stub/example");
+	$this->assertResponse(200, 'User is allowed to edit the content.');
+    $this->assertTrue(is_string($res), "A string was returned.");
+  }
+}

@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * This file serves as a stub file for a new module implementation.
+*/
+
+/**
+ * Implements hook_help().
+ */
+function stub_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#stub':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("The Stub module helps developers to create new modules") . '</p>';      
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function stub_menu() {
+  $items = array();
+  
+  $items['stub/example'] = array(
+    'type' => MENU_NORMAL_ITEM,
+    'title' => 'Menu Example',
+	'description' => 'Simplest possible menu type, and the parent menu entry for others',
+	'page callback' => '_stub_example',
+	'page arguments' => array(t('This page is displayed by the simplest (and base) menu example. Note that the title of the page is the same as the link title. You can also <a href="!link">visit a similar page with no menu link</a>. Also, note that there is a hook_menu_alter() example that has changed the path of one of the menu items.', array('!link' => url('examples/menu_example/path_only')))),
+	'access callback' => TRUE,
+	'expanded' => TRUE,
+  );
+   $items['admin/config/stub'] = array(
+    'title' => 'Stub',
+    'description' => 'Configure stub module.',
+    'position' => 'left',
+    'weight' => -20,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/stub/example'] = array(
+    'title' => 'Stub example settings',
+    'description' => 'Stub module configuration example.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('stub_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'includes/stub.admin.inc',
+    'weight' => -10,
+  );
+
+  return $items;
+}
+
+
+function _stub_example() {
+  $explanation = t("Stub example");
+  return $explanation;
+}
+
+/**
+ * @} End of 'defgroup stub'.
+ */

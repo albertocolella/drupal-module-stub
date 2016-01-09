@@ -1,0 +1,8 @@
+name = Module Stub
+description = Module startup for developers.
+package = Example modules
+core = 7.x
+
+files[] = stub.module
+files[] = includes/stub.admin.inc
+files[] = tests/stub.test
