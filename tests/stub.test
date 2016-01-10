@@ -5,7 +5,7 @@
  * Contains tests for the Stub module.
  */
 
-class StubModuleTestCase extends DrupalUnitTestCase {
+class StubModuleTestCase extends DrupalWebTestCase {
 
   /**
    * Implements getInfo().
@@ -30,7 +30,7 @@ class StubModuleTestCase extends DrupalUnitTestCase {
    */
   function testStubExample() {
     $res = $this->drupalGet("stub/example");
-	$this->assertResponse(200, 'User is allowed to edit the content.');
+	$this->assertResponse(200);
     $this->assertTrue(is_string($res), "A string was returned.");
   }
 }
